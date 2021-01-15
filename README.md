@@ -5,11 +5,13 @@ This repository contains the files for three modules:
 - Model view controller: build a website for your own mancala game (or use the sloppy default implementation).
 - CI/CD: run your tests automatically when pushing code to Gitlab.
 
-The skeleton project for the MVC is found on the mvc branch. On that branch, the README is updated with additional information.
 
 ## Repository structure
 
 - Main folder (this folder): contains the files relevant for the whole project. For example the Gradle-wrapper files, the .gitignore, and this readme.
+- api/: contains the files for the API or service layer of your application.
+- api/src/main/java/mancala/api: contains the web endpoints.
+- api/src/main/java/mancala/api/models: contains the web endpoints.
 - domain/: contains the files that model the business domain (game rules). This is the folder you develop your OO mancala case in.
 
 ## Java project structure
@@ -50,17 +52,14 @@ When you run the test, you will see a build failure. In `domain/src/test/java/ma
 
 ## Assignment
 
-For the lectures, see [the drive](https://drive.google.com/drive/u/0/folders/1NK95KK9Ev1yZAz1vLoQSO8rEkZq-A9AC).
+For the lecture, see [the drive](https://drive.google.com/drive/u/0/folders/1PvC-HS8ty3mdtSaNdR5rt5-GwL-5_LaY).
 
-Design an object-oriented model for mancala that can handle the following scenarios:
+The global goal is to make a web front-end to your mancala back-end. A stub has been made. In api/src/test you can find examples of how you can test the api endpoints.
 
-- All small bowls start with 4 beads
-- Players take turns making a move
-- A player moves by selecting a small bowl on their own side, take all the beads and distribute them anti-clockwise one at a time
-- When distributing, players include their own kalaha but not the opponent's
-- If a move ends in the own kalaha, the player can make another move.
-- If the last bead ends in an empty bowl on the own side, the player can take that bowl's bead and the direct opposite bowl's bead and put them in their kalaha.
-- The game ends if all bowls of the turn player are empty
-- The winner is the player with the most beads on their territory (all bowls).
-
-Implement the game rules test-driven. Don't be afraid to delete or modify the Foo(Test) files, as they are just an example.
+- Familiarise yourself with the repository. Get the servers running and make sure you can connect to both servers. Enter two names in the boxes. You should see a "TODO" screen.
+- Show the mancala game when it is started.
+- If you want to use your own implementation, reference your implemenation in the `MancalaImpl` class.
+- Build the API endpoint to make a move.
+- Show the winner as soon as the game is over.
+- Optionally, allow for a "revenge" option in which two players can play again.
+- Optionally, allow an ongoing game to continue after a page refresh.
