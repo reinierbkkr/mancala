@@ -20,10 +20,4 @@ public class FooTest {
         Foo foo = new Foo();
         assertEquals(42, foo.theAnswerToLifeTheUniverseAndEverything());
     }
-
-    @Test
-    public void thisTestFailsUnfortunately() {
-        Foo foo = new Foo();
-        assertEquals(3, foo.theAnswerToLifeTheUniverseAndEverything());
-    }
 }

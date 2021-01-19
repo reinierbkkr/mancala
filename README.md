@@ -35,18 +35,18 @@ To tell the build tool which files to compile, the above structure is used. In s
 
 ## Using Gradle
 
-You can either install Gradle on your machine and use the installation or use the Gradle wrapper files found next to this README.
+You can either install Gradle on your machine and use the installation or use the Gradle wrapper files found next to this README. Replace the `./gradlew` command with `gradle` if using the globally installed Gradle or `.\gradlew.bat` if you're running the Windows batch script.
 
 ```bash
 # Building
 ./gradlew build
-# Testing
+# Testing (will fail with the initial code)
 ./gradlew test
 # Running (only relevant for the MVC case)
 ./gradlew run
 ```
 
-Replace the `./gradlew` command with `gradle` if using the globally installed Gradle or `.\gradlew.bat` if you're running the Windows batch script.
+When you run the test, you will see a build failure. In `domain/src/test/java/mancala/domain.FooTest.java`, there is a failing test. If you fix the failing test, the build will succeed.
 
 ## Assignment
 
