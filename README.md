@@ -48,7 +48,7 @@ You can either install Gradle on your machine and use the installation or use th
 ./gradlew run
 ```
 
-When you run the test, you will see a build failure. In `domain/src/test/java/mancala/domain.FooTest.java`, there is a failing test. If you fix the failing test, the build will succeed.
+If you run the program, you will notice the build "progress" is stuck on 87% or so. That means your application is running and Gradle is waiting for it to succeed. You can ignore the progress bar when running the application; it should print some lines when it's ready.
 
 ## Assignment
 

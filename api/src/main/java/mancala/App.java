@@ -33,6 +33,7 @@ public class App {
                 new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
+        return context;
     }
 
     private static void registerServlets(ServletContextHandler context) {
