@@ -87,25 +87,31 @@ To tell the build tool which files to compile, the above structure is used. In s
 
 ## Using Gradle
 
-You can either install Gradle on your machine and use the installation or use the Gradle wrapper files found next to this README.
+You can either install Gradle on your machine and use the installation or use the Gradle wrapper files found next to this README. Replace the `./gradlew` command with `gradle` if using the globally installed Gradle or `.\gradlew.bat` if you're running the Windows batch script.
 
 ```bash
 # Building
 ./gradlew build
-# Testing
+# Testing (will fail with the initial code)
 ./gradlew test
 # Running (only relevant for the MVC case)
 ./gradlew run
 ```
 
-Replace the `./gradlew` command with `gradle` if using the globally installed Gradle or `.\gradlew.bat` if you're running the Windows batch script.
+If you run the program, you will notice the build "progress" is stuck on 87% or so. That means your application is running and Gradle is waiting for it to succeed. You can ignore the progress bar when running the application; it should print some lines when it's ready.
 
 ## Assignment
 
 For the lecture, see [the drive](https://drive.google.com/drive/u/0/folders/1PvC-HS8ty3mdtSaNdR5rt5-GwL-5_LaY).
+<<<<<<< HEAD
 
 The global goal is to make a web front-end to your mancala back-end. A stub has been made. In api/src/test you can find examples of how you can test the api endpoints.
 
+=======
+
+The global goal is to make a web front-end to your mancala back-end. A stub has been made. In api/src/test you can find examples of how you can test the api endpoints.
+
+>>>>>>> 7b1b8a35db9699240b6c5243cd89ef0be7fd798a
 - Familiarise yourself with the repository. Get the servers running and make sure you can connect to both servers. Enter two names in the boxes. You should see a "TODO" screen.
 - Show the mancala game when it is started.
 - If you want to use your own implementation, reference your implemenation in the `MancalaImpl` class.
