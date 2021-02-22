@@ -103,15 +103,9 @@ If you run the program, you will notice the build "progress" is stuck on 87% or 
 ## Assignment
 
 For the lecture, see [the drive](https://drive.google.com/drive/u/0/folders/1PvC-HS8ty3mdtSaNdR5rt5-GwL-5_LaY).
-<<<<<<< HEAD
 
 The global goal is to make a web front-end to your mancala back-end. A stub has been made. In api/src/test you can find examples of how you can test the api endpoints.
 
-=======
-
-The global goal is to make a web front-end to your mancala back-end. A stub has been made. In api/src/test you can find examples of how you can test the api endpoints.
-
->>>>>>> 7b1b8a35db9699240b6c5243cd89ef0be7fd798a
 - Familiarise yourself with the repository. Get the servers running and make sure you can connect to both servers. Enter two names in the boxes. You should see a "TODO" screen.
 - Show the mancala game when it is started.
 - If you want to use your own implementation, reference your implemenation in the `MancalaImpl` class.
