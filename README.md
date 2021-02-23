@@ -47,7 +47,7 @@ src/
 
 The public directory contains static files, such as the relatively empty index.html file needed to run React. The src file contains the React code. The convention for TypeScript projects is to use the .tsx file extension for files that contain React components. Files are generally grouped together in directories by feature. These directories contain all files related to that feature, such as coponents, stylesheets, images and tests.
 
-## Installating front-end dependencies
+## Installing front-end dependencies
 
 To run the React application you'll first need to install the required dependencies. These dependencies are defined in the package.json file. Run the command `npm install` from the `/client` directory.
 
