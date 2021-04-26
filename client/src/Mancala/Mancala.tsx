@@ -14,6 +14,10 @@ import "./Mancala.css";
  */
 export function Mancala() {
 
+    // useState is a so called React hook.
+    // It is used to manage variables.  When the setGameState function is called, React updates the UI as needed
+    // The call to useState follows the "rules of hooks": https://reactjs.org/docs/hooks-rules.html
+    // To check if code you added also follows the rules of hooks, run "npm run lint" in the command line
     const [ gameState, setGameState ] = useState<GameState | undefined>(undefined);
 
     if (!gameState) {
