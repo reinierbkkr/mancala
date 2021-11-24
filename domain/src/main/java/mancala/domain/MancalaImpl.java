@@ -18,7 +18,7 @@ public class MancalaImpl implements Mancala {
 	@Override
 	public int getStonesForPit(int index) {
         // Make a sane implementation.
-        if((index + 1 % 7) == 0) return 0;
+        if((index + 1) % 7 == 0) return 0;
         return 4;
     }
 
