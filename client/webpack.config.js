@@ -39,7 +39,7 @@ module.exports = {
         static: './dist',
         historyApiFallback: true,
         proxy: {
-            '/mancala': 'http://localhost:8080/mancala',
+            '/mancala': 'http://localhost:8080',
         },
     },
     plugins: [
