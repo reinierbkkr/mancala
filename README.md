@@ -1,5 +1,8 @@
 # Mancala
 
+IMPORTANT NOTE:
+Make sure you use java version 11 or higher!
+
 This repository contains the files for three modules:
 - Object orientated programming: make your own implementation of the mancala game.
 - Model view controller: build a website for your own mancala game (or use the sloppy default implementation).
