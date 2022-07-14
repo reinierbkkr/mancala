@@ -17,7 +17,7 @@ public class StartMancala {
 			PlayerInputDTO players) {
 		// Create HTTP session.
 		HttpSession session = request.getSession(true);
-
+		
 		// Initialize game.
 		Playable mancala = null;
 
