@@ -20,9 +20,9 @@ dependencies {
     // Use Jakarta (Java EE) for the servlet primitives.
     implementation 'jakarta.servlet:jakarta.servlet-api:5.+'
     // Use the Jetty server.
-    implementation 'org.eclipse.jetty:jetty-server:+'
-    implementation 'org.eclipse.jetty:jetty-servlet:+'
-    implementation 'org.eclipse.jetty:jetty-webapp:+'
+    implementation 'org.eclipse.jetty:jetty-server:11+'
+    implementation 'org.eclipse.jetty:jetty-servlet:11+'
+    implementation 'org.eclipse.jetty:jetty-webapp:11+'
     // We want to have some logging output if things go wrong, so use the simple console logger from SLF4J.
     // In our simple use case, the logger gets automatically configured by simply existing.
     implementation 'org.slf4j:slf4j-simple:+'
