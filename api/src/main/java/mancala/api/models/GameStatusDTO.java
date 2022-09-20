@@ -21,6 +21,7 @@ public class GameStatusDTO {
                 this.winner = mancala.getNameOfPlayerOne()
                         + " and "
                         + mancala.getNameOfPlayerTwo();
+                break;
             default:
                 this.winner = null;
         }
