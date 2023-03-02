@@ -40,9 +40,6 @@ public interface Playable {
 	 * 0 1 2 3 4 5
 	 * 
 	 * @param index Index of the recess to be played.
-	 * @return 15 item long Array with the current state of the game. The 15th item
-	 *         indicates which player has the next turn (possible values are 1 or
-	 *         2).
 	 */
 	void playPit(int index);
 
