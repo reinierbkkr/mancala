@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { To, NavLink, useNavigate } from "react-router-dom";
+import { To, useNavigate } from "react-router-dom";
 
 type Props = {
     to: To;
@@ -18,12 +18,4 @@ export const NavButton = (props: Props) => {
         onClick={() => navigate(to)}>
         {text}
     </button>)
-
-    // return (<NavLink to={to} className={({ isActive }) => classNames(
-    //     "py-1 px-3 rounded-full text-xl border-4",
-    //     "hover:text-neutral-800 ", "hover:bg-neutral-50", "hover:border-neutral-50 duration-300",
-    //     { "text-neutral-300 bg-sogyo border-neutral-300": !isActive },
-    //     { "text-neutral-800 bg-neutral-50 border-neutral-50": isActive })}>
-    //     {text}
-    // </NavLink>)
 }
