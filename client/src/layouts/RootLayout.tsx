@@ -9,7 +9,7 @@ export const RootLayout = () => {
         <header className="bg-sogyo shadow-lg flex flex-row p-4">
             <img src={logo} />
             <nav className="pt-4 flex-1 flex flex-row justify-center gap-2">
-                <NavButton to="/" text="Play" isActive={pathname === "/" || pathname === "/play"} />
+                <NavButton to="/" text="Play" isActive={pathname === "/"} />
                 <NavButton to="/about" text="About" isActive={pathname === "/about"} />
             </nav>
         </header>
