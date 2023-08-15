@@ -4,12 +4,10 @@ import { startGame } from "../services/api";
 import { isGameState } from "../types";
 import { FloatingInput } from "../components/FloatingInput";
 import classNames from "classnames";
-import { useNavigate } from "react-router-dom";
 import { Alert } from "../components/Alert";
 
 export const Start = () => {
     const { setGameState } = useMancalaGame();
-    const navigate = useNavigate();
 
     const [player1, setPlayer1] = useState("");
     const [player2, setPlayer2] = useState("");
@@ -21,7 +19,6 @@ export const Start = () => {
 
         if (isGameState(result)) {
             setGameState(result);
-            navigate("/play");
         } else {
             setAlert(`${result.statusCode} ${result.statusText}`);
         }
@@ -91,6 +88,7 @@ export const Start = () => {
                                         )}
                                         data-te-ripple-init
                                         data-te-ripple-color="light"
+                                        disabled={!valid}
                                         onClick={() => onSubmit()}
                                     >
                                         Play
