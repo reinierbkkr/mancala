@@ -9,23 +9,23 @@ import mancala.domain.Playable;
 
 @Path("/start")
 public class StartMancala {
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response start(@Context HttpServletRequest request, PlayerInputDTO players) {
-		// Create HTTP session.
-		HttpSession session = request.getSession(true);
-		
-		// Initialize game.
-		Playable mancala = null;
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response start(@Context HttpServletRequest request, PlayerInputDTO players) {
+        // Create HTTP session.
+        HttpSession session = request.getSession(true);
 
-		// Attach game to session.
-		session.setAttribute("mancala", mancala);
+        // Initialize game.
+        Playable mancala = null;
 
-		// Use the game to create a DTO.
-		var output = new MancalaDTO(mancala);
+        // Attach game to session.
+        session.setAttribute("mancala", mancala);
 
-		// Send DTO back in response.
-		return Response.status(200).entity(output).build();
-	}
+        // Use the game to create a DTO.
+        var output = new MancalaDTO(mancala);
+
+        // Send DTO back in response.
+        return Response.status(200).entity(output).build();
+    }
 }

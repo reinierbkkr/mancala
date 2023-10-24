@@ -33,7 +33,7 @@ public class StartMancalaTest {
         var response = startMancala("Mario", "Luigi");
         var entity = (MancalaDTO) response.getEntity();
         var players = entity.getPlayers();
-        
+
         assertEquals(2, players.length);
         assertEquals("Mario", players[0].getName());
         assertEquals("Luigi", players[1].getName());
@@ -44,7 +44,7 @@ public class StartMancalaTest {
         var response = startMancala("Mario", "Luigi");
         var entity = (MancalaDTO) response.getEntity();
         var players = entity.getPlayers();
-        
+
         assertEquals(7, players[0].getPits().length);
         assertEquals(0, players[0].getPits()[0].getIndex());
         assertEquals(7, players[1].getPits().length);
@@ -76,7 +76,7 @@ public class StartMancalaTest {
         session = mock(HttpSession.class);
 
         when(request.getSession(true)).thenReturn(session);
-        
+
         return request;
     }
 
