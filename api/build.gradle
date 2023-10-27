@@ -27,8 +27,9 @@ dependencies {
     // In our simple use case, the logger gets automatically configured by simply existing.
     implementation 'org.slf4j:slf4j-simple:+'
     
-    // Reference the domain subproject.
+    // Reference the domain and persistence subprojects.
     implementation project(':domain')
+    implementation project(':persistence')
 
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
@@ -41,7 +42,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'mancala.App'
+    mainClassName = 'mancala.api.App'
 }
 
 test {

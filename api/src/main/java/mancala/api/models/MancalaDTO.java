@@ -1,15 +1,15 @@
 package mancala.api.models;
 
-import mancala.domain.Playable;
+import mancala.domain.IMancala;
 
 public class MancalaDTO {
 
     private GameStatusDTO gameStatus;
     private PlayerDTO[] players;
 
-    public MancalaDTO(Playable mancala) {
+    public MancalaDTO(IMancala mancala) {
         players = new PlayerDTO[2];
-        
+
         players[0] = new PlayerDTO(mancala, mancala.getNameOfPlayerOne());
         players[1] = new PlayerDTO(mancala, mancala.getNameOfPlayerTwo());
 

@@ -1,13 +1,13 @@
 package mancala.api.models;
 
-import mancala.domain.Playable;
+import mancala.domain.IMancala;
 
 public class GameStatusDTO {
 
     public boolean endOfGame;
     public String winner;
 
-    public GameStatusDTO(Playable mancala) {
+    public GameStatusDTO(IMancala mancala) {
         this.endOfGame = mancala.isEndOfGame();
         switch (mancala.getWinner()) {
             case PLAYER_1:
