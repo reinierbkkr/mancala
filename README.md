@@ -11,120 +11,168 @@ This repository contains the files for three modules:
 
 ## Repository structure
 
-- Main folder (this folder): contains the files relevant for the whole project. For example the Gradle-wrapper files, the .gitignore, and this readme.
-- api/: contains the files for the API or service layer of your application.
-- api/src/main/java/mancala/api: contains the web endpoints.
-- api/src/main/java/mancala/api/models: contains the web endpoints.
-- domain/: contains the files that model the business domain (game rules). This is the folder you develop your OO mancala case in.
-- client/: contains the client (front-end)
-
-## Two servers
-
-The project consists of two servers. The front-end uses a Node.js server. It is mainly used to compile your React code into Javascript files during development. This will shorten the feedback loop between changing your code and seeing the results in the browser. The second server is the back-end, which uses a Jetty server. The back-end server allows your Java API to be accessible for other programs, including the front-end server. To prevent [cross-origin request shenanigans (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), all requests from the browser will be sent to the front-end server. That server will then forward to the back-end server if needed.
-
-The front-end assumes that the back-end will run on port 8080. If that is not the case, edit the webpack.config.js file.
-
-To run the application you need to have both servers running at the same time. This probably means you'll need to open two different terminals/command prompts to do so.
-
-
-## React project structure
-
-A React project is generally structured as follows:
+In this repository, we find the following files and directories.
 
 ```
-package.json
-public/
-   index.html
-src/
-   assets/
-      Image1.png
-      Image2.jpg
-   components/
-      Component1.tsx
-      Component2.tsx
-   pages/
-      Page1.tsx
-      Page2.tsx
+api
+   *Java subproject for running the webserver*
+client
+   *Our front-end*
+domain
+   *Java subproject for the Mancala domain*
+persistence
+   *Java subproject for interacting with the database*
+.gitignore
+README.md
+settings.gradle
+...
 ```
 
-The public directory contains static files. The src file contains the React code. The convention for TypeScript projects is to use the .tsx file extension for files that contain React components. Files are generally grouped together in directories by feature. These directories contain all files related to that feature, such as components, stylesheets, images and tests.
+## The back-end
 
-Styling can be done using [tailwindcss](https://tailwindcss.com/).
-
-## Installing front-end dependencies
-
-To run the React application you'll first need to install the required dependencies. These dependencies are defined in the package.json file. Run the command `npm install` from the `/client` directory.
-
-## Running the front-end
-
-The package.json specifies which commands can be run using npm (e.g. npm run start). In this sample repository, two commands have been defined. You should also run these in the `/client` directory.
+The back-end is a Java API, which is served using a simple [Jetty server](https://en.wikipedia.org/wiki/Jetty_(web_server)). We can build, test and run the whole project using the gradle wrapper:
 
 ```bash
-# Start a development server
-npm run dev
-# Check code for common mistakes and style conventions
-npm run lint
-```
-
-## Java project structure
-
-A Java project is generally structured as follows:
-
-```
-build.gradle
-src/
-   main/
-       (package)/
-            (Java files)
-   test/
-       (package)/
-            (Java test files)
-```
-
-In the project root folder (for example, the domain/ folder), a project definition is found. As we use Gradle, we have a build.gradle file. For Maven (another commonly used build tool), we would have a pom.xml. These files contain roughly the same: the project metadata and its dependencies. The build tool can then resolve those dependencies by downloading them from an online registry or compile related projects and link the resulting jar files.
-
-A build tool also makes sure multiple Java files inside the same project are compiled in one go. Basically it acts as a wrapper around the compiler. You can invoke the compiler manually by typing `javac mancala/domain/Foo.java mancala/domain/Bar.java` over and over, or let your build tool generate and execute the command for you.
-
-To tell the build tool which files to compile, the above structure is used. In src/main/ you place your application code, the actual implementation of the game rules. You should also adhere to the Java file structure, meaning that your folder structure should match your package definition (mancala/domain/) and your filename should match your class name (Foo.java). In src/test/ you place the files that test your main code. By convention, the test file structure mimics the main file structure (mancala/domain/FooTest.java).
-
-## Using Gradle
-
-You can either install Gradle on your machine and use the installation or use the Gradle wrapper files found next to this README. Replace the `./gradlew` command with `gradle` if using the globally installed Gradle or `.\gradlew.bat` if you're running the Windows batch script.
-
-```bash
-# Building
+# Build the project
 ./gradlew build
-# Testing (will fail with the initial code)
+# Run all unit tests
 ./gradlew test
-# Running (only relevant for the MVC case)
+# Run the Jetty server
 ./gradlew run
 ```
 
-If you run the build tool with either the `build` or `test` options, you will see that the tests in the `api/src/test/.../StartMancalaTest.java` file fail. Check the test output and see if you can figure out why these tests fail.
+If you run the server, you will see that it listens at `http://localhost:8080`.
 
-The tests fail because we have no domain classes implemented yet.
+## The front-end
 
-In our `StartMancala` servlet, we instantiate our domain as `null` on line 22. Instead, we should instantiate a class here that implements the `Playable` interface. You can do so by merging the mainline branch (where you first wrote your mancala game) into this branch and implementing a `MancalaGame.java` class that uses the methods from your classes to adhere to the `Playable` interface. 
+The front-end (found in the `client` folder) is a [React](https://react.dev/) project, which is served using [Vite](https://vitejs.dev/). Here we find the following files:
 
-If you do so correctly, these tests should succeed, and the back-end should build successfully.
+```
+public
+   *static files such as images*
+src
+   *The React source code*
+package.json
+README.md
+vite.config.ts
+...
+```
 
-If you run the program, you will notice the build "progress" is stuck on 87% or so. That means your application is running and Gradle is waiting for it to succeed. You can ignore the progress bar when running the application; it should print some lines when it's ready.
+Styling can be done using [tailwindcss](https://tailwindcss.com/). As you may remember from the Front-End module, [`package.json`](./client/package.json) contains the dependencies of the project. Before we can run it, we need to install the dependencies:
+
+```bash
+cd client
+npm install
+```
+
+After that, we can use the scripts from `package.json` to do the following:
+
+```bash
+# Start the front-end server
+npm run dev
+# Check code for common mistakes and style conventions
+npm run lint
+# Create a production-worthy build of the client
+npm run build
+```
+
+If you start the front-end server, you will see that it listens at `http://localhost:5173`. Navigate to this url in your favorite browser, and admire the Mancala website! If you save changes to any of the React files, the front-end server will immediately inform the browser of these changes, and you will see them on your screen immediately.
+
+## Two servers?
+
+As we see, the project consists of two servers. Thus, to run the application you need to have both servers running at the same time. This probably means you'll need to open two different terminals/command prompts to do so.
+
+The front-end server is mainly for development purposes, because it makes sure that any changes in the client code are immediately reflected in the browser. Our mancala logic, on the other hand, resides in the back-end server. So, if we want to start a new mancala game, we need to fetch `/mancala/api/start` from the back-end server. However, [cross-origin resource shenanigans (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) prevent us from doing this directly.
+
+```mermaid
+flowchart LR
+    client(Browser)
+    feserver(Front-end<br>Vite server)
+    beserver(Back-end<br>Jetty server)
+
+    client -- /index.html etc --> feserver
+    client -- /mancala/api/start --x beserver
+```
+
+Instead, we send _all_ fetch calls to the front-end server. The vite server is [configured](./client/vite.config.ts) to proxy any path starting with `/mancala` to the back-end server:
+
+```mermaid
+flowchart LR
+    client(Browser)
+    feserver(Front-end<br>Vite server)
+    beserver(Back-end<br>Jetty server)
+
+    client -- /index.html etc --> feserver
+    client -- /mancala/api/start --> feserver
+    feserver -- "(proxied) /mancala/api/start" --> beserver
+```
+
+Since the front-end server is mainly for development purposes, it is usually not deployed to a production environment. Instead, a build of the client (see above) is hosted statically on the back-end server.
 
 ## Assignment
 
-For the lecture, see [the drive](https://drive.google.com/drive/u/0/folders/1PvC-HS8ty3mdtSaNdR5rt5-GwL-5_LaY).
+This assignment follows the [MVC lecture](https://drive.google.com/drive/u/0/folders/1PvC-HS8ty3mdtSaNdR5rt5-GwL-5_LaY). The overall goal is to integrate your mancala domain into a full stack application, following the (web-)MVC architecture.
 
-The global goal is to make a web front-end to your mancala back-end. A stub has been made. In api/src/test you can find examples of how you can test the api endpoints.
+### Part 0: reconnaissance
 
-- Familiarise yourself with the repository. 
-- Fix the failing `api/.../StartMancalaTest` tests by doing the following:
-  - Merge your own mancala implementation into this branch OR
-  - ask the academy coaches for a working set of back-end classes (from the cupboard).
-  - Write a `MancalaGame.java` which implements the `Playable` interface by using your domain classes.
-- Now, get the servers running and make sure you can connect to both servers. 
-- Enter two names in the boxes. You should see a "TODO" screen.
-- Show the mancala game when it is started.
-- Build the API endpoint to make a move.
-- Show the winner as soon as the game is over.
-- Optionally, allow for a "revenge" option in which two players can play again.
-- Optionally, allow an ongoing game to continue after a page refresh.
+While you were modeling and implementing the mancala domain, your team mates implemented the API layer. Even though this layer depends on the domain and persistence layers (which haven't been built yet), they were able to design the API layer by defining contracts between the layers. Thus, you will see that the domain and persistence projects are not empty.
+
+After finishing the API layer, your team mates started working on the client, but they haven't finished it yet.
+
+Have a look at the ground work provided in this repository, and try to make a sketch of the architecture. How do the layers depend on each other? And when the application runs and the game is played, how does information flow through the system?
+
+### Part 1: the domain
+
+It's time to connect your work with the work done in the API layer. Copy the files from your own mancala implementation into the [appropriate folder](./domain/src/main/java/mancala/domain/). Then, using your domain, write implementations of both the [`IMancala`](./domain/src/main/java/mancala/domain/IMancala.java) and [`IMancalaFactory`](./domain/src/main/java/mancala/domain/IMancalaFactory.java) interfaces. (If you didn't quite finish the OO case, you can ask the academy staff for a reference implementation of the mancala domain.)
+
+### Part 2: persistence
+
+Unfortunately, the database expert from your team is on holiday, so saving games in a database is put on hold. For now, a simple "in-memory" implementation will suffice. Write an implementation of the [`IMancalaRepository`](./persistence/src/main/java/mancala/persistence/IMancalaRepository.java) interface, which simply saves the games in memory. A simple HashMap will do.
+
+### Part 3: connect the dots
+
+Now that we have implementations of both the `IMancalaFactory` and `IMancalaRepository` interfaces, we can inject these as dependencies into the API layer. Identify (or remember from part 0) where you need to inject the dependencies. You will need to do this in the actual application itself, and in the test suite. If all goes well, the [unit tests](./api/src/test/java/mancala/api/controllers/MancalaControllerTest.java) for the mancala controller should pass. You should also be able to start the server and get responses from it.
+
+<details>
+<summary>Tip</summary>
+
+You can check this even without starting the front-end server, e.g., by using `curl`:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"player1": "Mario", "player2": "Luigi"}' http://localhost:8080/mancala/api/start
+```
+</details>
+
+### Part 4: the client
+
+Now that the back-end is working, it's time to join the efforts of your team mates to complete the client. If you start both servers, and navigate to `localhost:5173`, you will see a screen where you can fill out two names. Submitting the names will take you to a new page, which is under construction. Complete this page, so that the mancala game can actually be played! Also show the winner as soon as the game is over.
+
+## Optional assignments
+
+Now that we have a working MVP, here are some optional parts to work on.
+
+### Part 5: revenge
+
+Allow for a "revenge" option in which two players can play again.
+
+### Part 6: unhappy paths
+
+The API layer works quite well in the case where the input we get is valid. This is usually called the [happy path](https://en.wikipedia.org/wiki/Happy_path). However, we also need to guard ourselves against invalid input. For example, if you allow clicking unplayable bowls in your front-end, the server will probably return either a 200 or 500 status code (depending on how your domain handles illegal moves). But this should really be a 400-range code, since the error was made client-side. Or consider something as simple as this:
+
+```
+curl -X POST http://localhost:8080/mancala/api/start
+```
+
+This causes an exception in the Jetty server and therefore returns a 500 code. But again, this is a client error, because we should have sent data.
+
+Make the server more robust against these kinds of invalid input. Also write unit tests for these "unhappy paths".
+
+### Part 7: persistence, but for real this time
+
+Unfortunately, it looks like the database expert isn't coming back any time soon, so the task of saving the games in an actual database falls upon you. Write another implementation of the `IMancalaRepository` interface, which connects to an actual database and saves the games there. You may find that this requires you to rethink the contracts between the layers.
+
+Inject this new implementation into the application. For the unit tests, you can keep the simple in-memory implementation!
+
+### Part 8: survival
+
+Even though our games are now actually persisted, there is still a problem. If the server is restarted, then all the HTTP sessions are gone. This means that the links between our clients and the game IDs (which were saved in the sessions) are lost forever. Thus, our application does not really survive a server crash and restart. Find a way to allow users to continue playing the next day, even if the server was restarted in the meantime.

@@ -1,6 +1,6 @@
 package mancala.api.models;
 
-import mancala.domain.Playable;
+import mancala.domain.IMancala;
 
 public class PlayerDTO {
 
@@ -10,7 +10,7 @@ public class PlayerDTO {
     public PitDTO[] pits = new PitDTO[7];
 
     public PlayerDTO(
-            Playable mancala,
+            IMancala mancala,
             String name) {
         this.name = name;
         this.hasTurn = mancala.isPlayersTurn(name);

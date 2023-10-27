@@ -1,6 +1,6 @@
 package mancala.domain;
 
-public interface Playable {
+public interface IMancala {
 
     public enum Winner {
         NO_ONE,
@@ -26,7 +26,7 @@ public interface Playable {
     /**
      * Method indicating if the first player has the next turn or not.
      * 
-     * @param The player which you want to know the turn for.
+     * @param name The player which you want to know the turn for.
      * @return True if the player has the turn. False if it's the turn of the other
      *         player.
      */
