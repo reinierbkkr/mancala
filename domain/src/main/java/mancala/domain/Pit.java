@@ -170,6 +170,12 @@ class Pit extends AbstractPit {
 
     public void playPitAtPosition(int index) throws UnplayablePitException {((Pit) getPitAtDistance(index)).play();}
 
-    // get playable pits indexes
+    public boolean playerIsActive(){
+        return player.isActive();
+    }
+
+    public boolean opponentIsActive(){
+        return player.getOpponent().isActive();
+    }
 
 }

@@ -118,4 +118,20 @@ public class MancalaTest {
 
         assertEquals(IMancala.Winner.DRAW, mancala.getWinner());
     }
+
+    @Test
+    void isPlayersTurn_its_player1s_turn_test(){
+        IMancala mancala = new Mancala("hans", "jan");
+
+        assertTrue(mancala.isPlayersTurn("hans"));
+    }
+
+    @Test
+    void isPlayersTurn_its_player2s_turn_test(){
+        IMancala mancala = new Mancala("hans", "jan");
+
+        mancala.playPit(0);
+
+        assertTrue(mancala.isPlayersTurn("jan"));
+    }
 }

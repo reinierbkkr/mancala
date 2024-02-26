@@ -3,29 +3,42 @@ package mancala.domain;
 import mancala.domain.exceptions.UnplayablePitException;
 
 public class Mancala implements IMancala {
-    private Pit firstPit;
+    private final Pit firstPit;
+    private final String namePlayer1;
+    private final String namePlayer2;
 
     public Mancala(String namePlayer1, String namePlayer2) {
         firstPit = new Pit();
+        this.namePlayer1 = namePlayer1;
+        this.namePlayer2 = namePlayer2;
     }
 
     public Mancala(int[] seedCountArray){
         firstPit = new Pit(seedCountArray);
+        this.namePlayer1 = "Player 1";
+        this.namePlayer2 = "Player 2";
     }
 
     @Override
     public String getNameOfPlayerOne() {
-        return null;
+        return namePlayer1;
     }
 
     @Override
     public String getNameOfPlayerTwo() {
-        return null;
+        return namePlayer2;
     }
 
     @Override
     public boolean isPlayersTurn(String name) {
-        return false;
+        if (name.equals(namePlayer1)){
+            return firstPit.playerIsActive();
+        } else if (name.equals(namePlayer2)){
+            return !firstPit.playerIsActive();
+        } else {
+//            throw exception
+            return false;
+        }
     }
 
     @Override
