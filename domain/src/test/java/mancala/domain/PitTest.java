@@ -293,21 +293,7 @@ public class PitTest {
     }
 
     @Test
-    void playEndInEmptyPitOppositePitIsEmptySoNoReapPit1ShouldHave1SeedTest() throws UnplayablePitException {
-        Pit pit1 = new Pit();
-        Pit pit11 = (Pit) pit1.getPitAtDistance(10);
-
-        pit1.play();
-        pit11.play();
-
-//        printBoard(pit1);
-
-        assertEquals(1, pit1.getSeedCount());
-
-    }
-
-    @Test
-    void playEndInEmptyPitOppositePitIsEmptySoNoReapPit13ShouldHave5SeedsTest() throws UnplayablePitException {
+    void playEndInEmptyOpponentPitSoNoReapPit1ShouldHave1SeedTest() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit11 = (Pit) pit1.getPitAtDistance(10);
         Pit pit13 = (Pit) pit1.getPitAtDistance(12);
@@ -315,28 +301,17 @@ public class PitTest {
         pit1.play();
         pit11.play();
 
-//    pit1.printBoard();
 
-        assertEquals(5, pit13.getSeedCount());
-
-    }
-
-    @Test
-    void playEndInEmptyPitOfOpponentWithOppositeFullSoNoReapDestinationHas1SeedTest() throws UnplayablePitException {
-        Pit pit1 = new Pit();
-
-        Pit pit11 = (Pit) pit1.getPitAtDistance(10);
-
-        pit1.play();
-        pit11.play();
-
-//        printBoard(pit1);
+        printBoard(pit1);
 
         assertEquals(1, pit1.getSeedCount());
+        assertEquals(5, pit13.getSeedCount());
+
+
     }
 
     @Test
-    void playEndInEmptyPitOppositePitIsFullSoReapLeavesOwnPitEmptyTest() throws UnplayablePitException {
+    void playEndInEmptyPitOppositePitIsFullSoReap() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit5 = (Pit) pit1.getPitAtDistance(4);
         Pit pit8 = (Pit) pit1.getPitAtDistance(7);
@@ -348,19 +323,6 @@ public class PitTest {
 //        printBoard(pit1);
 
         assertEquals(0, pit5.getSeedCount());
-    }
-
-    @Test
-    void playEndInEmptyPitOppositePitIsFullSoReapTransfersToKahluaTest() throws UnplayablePitException {
-        Pit pit1 = new Pit();
-        Pit pit5 = (Pit) pit1.getPitAtDistance(4);
-        Pit pit8 = (Pit) pit1.getPitAtDistance(7);
-
-        pit5.play();
-        pit8.play();
-        pit1.play();
-
-//        printBoard(pit1);
 
         AbstractPit kahlua = pit1.getPitAtDistance(6);
 
@@ -404,7 +366,50 @@ public class PitTest {
 
 //        printBoard(pit1);
 
+        AbstractPit kahlua = pit1.getPitAtDistance(13);
+
         assertEquals(0, pit13.getSeedCount());
+        assertEquals(7, kahlua.getSeedCount());
+
+    }
+
+    @Test
+    void playPitEndsInEmptyOpponentsPitSoNoReap() throws UnplayablePitException{
+        int[] seedCountArray = {
+                0,0,0,0,0,2,
+                0,
+                0,0,0,0,0,0,
+                0};
+        Pit pit1 = new Pit(seedCountArray);
+
+        Pit pit6 = (Pit) pit1.getPitAtDistance(5);
+
+        pit6.play();
+
+        AbstractPit pit8 = pit1.getPitAtDistance(7);
+
+        assertEquals(1, pit8.getSeedCount());
+
+    }
+
+    @Test
+    void playPitEndsInEmptyPitButOppositePitIsEmptySoNoReap() throws UnplayablePitException{
+        int[] seedCountArray = {
+                1,0,0,0,0,0,
+                0,
+                1,0,0,0,0,0,
+                0};
+        Pit pit1 = new Pit(seedCountArray);
+
+        pit1.play();
+
+        AbstractPit pit2 = pit1.getNextPit();
+
+        printBoard(pit1);
+
+        assertEquals(0, pit1.getSeedCount());
+        assertEquals(1, pit2.getSeedCount());
+
     }
 
     @Test

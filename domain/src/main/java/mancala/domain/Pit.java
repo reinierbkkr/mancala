@@ -168,7 +168,8 @@ class Pit extends AbstractPit {
         return getPitAtDistance(index).getSeedCount();
     }
 
+    public void playPitAtPosition(int index) throws UnplayablePitException {((Pit) getPitAtDistance(index)).play();}
+
     // get playable pits indexes
-    // play pit at position
 
 }

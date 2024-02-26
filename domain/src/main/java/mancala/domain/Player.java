@@ -3,7 +3,9 @@ package mancala.domain;
 class Player {
     private boolean active = false;
 
-    private Player opponent;
+    private final Player opponent;
+
+//    private final String name;
 
     Player() {
         opponent = new Player(this);
