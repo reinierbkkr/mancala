@@ -46,6 +46,7 @@ public class Mancala implements IMancala {
         try {
             firstPit.playPitAtPosition(index);
         } catch (UnplayablePitException e) {
+            // notify client
             System.out.println("Error occurred: " + e);
         }
     }
