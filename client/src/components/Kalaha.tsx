@@ -1,7 +1,7 @@
 import { useMancalaGame } from "../contexts/MancalaGameContext";
 
 type Props = {
-    player: Int;
+    player: number;
 };
 
 
