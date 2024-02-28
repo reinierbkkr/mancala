@@ -15,17 +15,17 @@ export const Board = () => {
 
     for (let i = 0; i < nOfPits; i++){
         pitsP1.push(
-            <Pit player={0} index={i}/>
+            <Pit player={0} index={i} key={i}/>
         )
         pitsP2.push(
-            <Pit player={1} index={5-i}/>
+            <Pit player={1} index={5-i} key={i}/>
         )
     }
 
-    return <div>
+    return <div className="pt-4 flex justify-center gap-2">
         <Kalaha player={1} />
         <div>
-            <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP2 }</div>
+            <div className="flex-1 flex flex-row justify-center gap-2">{ pitsP2 }</div>
             <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP1 }</div>
         </div>
         <Kalaha player={0} />
