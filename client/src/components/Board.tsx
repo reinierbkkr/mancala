@@ -1,4 +1,6 @@
 import { Pit } from "../components/Pit";
+import { Kalaha } from "../components/Kalaha";
+
 import { useMancalaGame } from "../contexts/MancalaGameContext";
 
 
@@ -8,19 +10,25 @@ export const Board = () => {
     const pitsP1 = [];
     const pitsP2 = [];
 
+    console.log(gameState);
+
 
     for (let i = 0; i < nOfPits; i++){
         pitsP1.push(
-            <Pit seedCount={gameState?.players[0].pits[i].nrOfStones}/>
+            <Pit player={0} index={i}/>
         )
         pitsP2.push(
-            <Pit seedCount={gameState?.players[1].pits[5-i].nrOfStones}/>
+            <Pit player={1} index={5-i}/>
         )
     }
 
     return <div>
-        <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP2 }</div>
-        <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP1 }</div>
+        <Kalaha player={1} />
+        <div>
+            <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP2 }</div>
+            <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP1 }</div>
+        </div>
+        <Kalaha player={0} />
     </div>
         
 }
