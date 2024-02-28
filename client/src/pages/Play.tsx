@@ -1,5 +1,6 @@
 import { useMancalaGame } from "../contexts/MancalaGameContext";
 import { Board } from "../components/Board";
+import classNames from "classnames";
 
 export const Play = () => {
     const { gameState, setGameState } = useMancalaGame();
@@ -13,9 +14,10 @@ export const Play = () => {
 
     return <div>
         <div className="pt-6 text-center">
-            <h4 className="text-xl font-semibold"> Player: {player2} </h4>
+            {/* <h4 className="text-xl font-semibold"> Player: {player2} </h4> */}
+            <h4 className={classNames("text-xl", "font-semibold", {"underline": player2===activeplayer})}>Player: {player2}</h4>
         <Board />
-            <h4 className="text-xl font-semibold"> Player: {player1} </h4><br />
+        <h4 className={classNames("text-xl", "font-semibold", {"underline": player1===activeplayer})}>Player: {player1}</h4><br />
             {gameStatus}
 
         </div>
