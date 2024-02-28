@@ -32,7 +32,7 @@ export async function playPit(player: number, index: number) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            indexToPlay: player*6+index,
+            indexToPlay: player*7+index,
         }),
     });
 

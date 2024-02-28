@@ -1,12 +1,24 @@
-// import { useMancalaGame } from "../contexts/MancalaGameContext";
+import { useMancalaGame } from "../contexts/MancalaGameContext";
 import { Board } from "../components/Board";
 
 export const Play = () => {
-    // const { gameState, setGameState } = useMancalaGame();
+    const { gameState, setGameState } = useMancalaGame();
+    const player1 = gameState?.players[0].name
+    const player2 = gameState?.players[1].name
+    const activeplayer = gameState?.players[0].hasTurn ? player1 : player2
+    const hasGameEnded = gameState?.gameStatus.endOfGame
+    const winner = gameState?.gameStatus.winner
+
+    const gameStatus = hasGameEnded ? <div>{winner} has won!</div> : <div>It's player {activeplayer}'s turn</div>
 
     return <div>
-        {/* Player 1: {gameState?.players[0].name}<br />
-        Player 2: {gameState?.players[1].name}<br /> */}
+        <div className="pt-6 text-center">
+            <h4 className="text-xl font-semibold"> Player: {player2} </h4>
         <Board />
+            <h4 className="text-xl font-semibold"> Player: {player1} </h4><br />
+            {gameStatus}
+
+        </div>
     </div>
 };
+

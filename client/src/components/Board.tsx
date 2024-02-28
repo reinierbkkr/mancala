@@ -10,7 +10,7 @@ export const Board = () => {
     const pitsP1 = [];
     const pitsP2 = [];
 
-    console.log(gameState);
+    // console.log(gameState);
 
 
     for (let i = 0; i < nOfPits; i++){
@@ -22,7 +22,7 @@ export const Board = () => {
         )
     }
 
-    return <div className="pt-4 flex justify-center gap-2">
+    return <div className="mb-6 pt-6 flex justify-center gap-2">
         <Kalaha player={1} />
         <div>
             <div className="flex-1 flex flex-row justify-center gap-2">{ pitsP2 }</div>
