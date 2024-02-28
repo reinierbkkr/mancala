@@ -11,9 +11,13 @@ export const Kalaha = (props: Props) => {
     const { gameState, setGameState } = useMancalaGame();
 
     const { player } = props;
-    
+
+    const hasTurn = gameState?.players[player].hasTurn
+
     return <div className={classNames(
-        "flex", "items-center",
+        "flex",
+        "items-center",
+        "min-h-full",
         "py-1",
         "px-3",
         "rounded-full",
@@ -22,8 +26,13 @@ export const Kalaha = (props: Props) => {
         "duration-300",
         "text-neutral-800",
         "bg-neutral-50",
+        {"border-neutral-200": hasTurn},
+        {"border-neutral-100": !hasTurn }
     )}>
+        <div className="min-w-[23px]">
+        {/* {player===0?1:22} */}
         {gameState?.players[player].pits[6].nrOfStones}
+        </div>
     </div>
         
 } 

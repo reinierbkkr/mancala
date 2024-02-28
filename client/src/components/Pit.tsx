@@ -35,16 +35,20 @@ export const Pit = (props: Props) => {
         "rounded-full",
         "text-xl",
         "border-4",
-        {"hover:text-neutral-800 hover:bg-neutral-50 hover:border-neutral-50": valid},
         "duration-300",
         "text-neutral-800",
         "bg-neutral-50",
-        "border-neutral-200",
-        { "cursor-not-allowed border-neutral-50 opacity-70": !valid }
+        
+        {"hover:bg-neutral-100 hover:border-neutral-300": hasTurn && (nrOfStones>0)},
+        {"cursor-not-allowed": hasTurn && (nrOfStones===0) },
+        {"border-neutral-100": !hasTurn}
+        
     )}
     onClick={() => onSubmit()}
     disabled={!valid}>
-        {gameState?.players[player].pits[index].nrOfStones}
+        <div className="min-w-[23px]">
+            {gameState?.players[player].pits[index].nrOfStones}
+        </div>
     </button>
         
 } 

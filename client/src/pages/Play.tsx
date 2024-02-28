@@ -19,7 +19,6 @@ export const Play = () => {
         <Board />
         <h4 className={classNames("text-xl", "font-semibold", {"underline": player1===activeplayer})}>Player: {player1}</h4><br />
             {gameStatus}
-
         </div>
     </div>
 };
