@@ -19,8 +19,6 @@ export const Pit = (props: Props) => {
 
     const valid = hasTurn && (nrOfStones > 0)
 
-    const position = "order-" + (index + 1).toString()
-
     const onSubmit = async () => {
         const result = await playPit(player, index);
 
