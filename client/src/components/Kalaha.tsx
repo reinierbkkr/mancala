@@ -30,7 +30,6 @@ export const Kalaha = (props: Props) => {
         {"border-neutral-100": !hasTurn }
     )}>
         <div className="min-w-[23px]">
-        {/* {player===0?1:22} */}
         {gameState?.players[player].pits[6].nrOfStones}
         </div>
     </div>

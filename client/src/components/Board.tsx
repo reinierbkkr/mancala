@@ -2,6 +2,7 @@ import { Pit } from "../components/Pit";
 import { Kalaha } from "../components/Kalaha";
 
 import { useMancalaGame } from "../contexts/MancalaGameContext";
+import classNames from "classnames";
 
 
 export const Board = () => {
@@ -10,8 +11,7 @@ export const Board = () => {
     const pitsP1 = [];
     const pitsP2 = [];
 
-    // console.log(gameState);
-
+    const player1Active = gameState?.players[0].hasTurn
 
     for (let i = 0; i < nOfPits; i++){
         pitsP1.push(
@@ -22,13 +22,31 @@ export const Board = () => {
         )
     }
 
-    return <div className="mb-6 pt-6 flex justify-center gap-2">
-        <Kalaha player={1} />
-        <div>
-            <div className="flex-1 flex flex-row justify-center gap-2">{ pitsP2 }</div>
-            <div className="pt-4 flex-1 flex flex-row justify-center gap-2">{ pitsP1 }</div>
-        </div>
-        <Kalaha player={0} />
+    return <div className={classNames(
+        "mb-6 pt-6 flex justify-center gap-2",
+        {"flex-row-reverse": !player1Active}
+        )}>
+            <Kalaha player={1} />
+            <div className={classNames(
+                "flex flex-col",
+                {"flex-col-reverse":!player1Active}
+                )}>
+                <div className={classNames(
+                    "flex-1 flex flex-row justify-center gap-2",
+                    {"pt-4 flex-row-reverse":!player1Active}
+                    )}>
+                    { pitsP2 }
+                </div>
+                <div className={classNames(
+                    "flex-1 flex flex-row justify-center gap-2",
+                    {"pt-4":player1Active},
+                    {"flex-row-reverse":!player1Active}
+                    )}>
+                    { pitsP1 }
+                </div>
+            </div>
+            <Kalaha player={0} />
     </div>
+    
         
 }

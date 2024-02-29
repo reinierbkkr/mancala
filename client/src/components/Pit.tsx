@@ -19,6 +19,8 @@ export const Pit = (props: Props) => {
 
     const valid = hasTurn && (nrOfStones > 0)
 
+    const position = "order-" + (index + 1).toString()
+
     const onSubmit = async () => {
         const result = await playPit(player, index);
 
@@ -38,7 +40,9 @@ export const Pit = (props: Props) => {
         "duration-300",
         "text-neutral-800",
         "bg-neutral-50",
-        
+        // {"order-1": index===5},     
+        // {"order-2": index===4},        
+   
         {"hover:bg-neutral-100 hover:border-neutral-300": hasTurn && (nrOfStones>0)},
         {"cursor-not-allowed": hasTurn && (nrOfStones===0) },
         {"border-neutral-100": !hasTurn}
@@ -46,7 +50,9 @@ export const Pit = (props: Props) => {
     )}
     onClick={() => onSubmit()}
     disabled={!valid}>
-        <div className="min-w-[23px]">
+        <div className={classNames(
+            "min-w-[23px]"
+            )}>
             {gameState?.players[player].pits[index].nrOfStones}
         </div>
     </button>
