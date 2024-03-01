@@ -25,9 +25,10 @@ export const RematchButton = () => {
 
     return (<button className={classNames(
         "py-1 px-3 rounded-full text-xl border-4",
-        "hover:text-neutral-800 ", "hover:bg-neutral-50", "hover:border-neutral-50 duration-300",
-        { "text-neutral-300 bg-sogyo border-neutral-300": false },
-        { "text-neutral-800 bg-neutral-50 border-neutral-50": true })}
+        "bg-neutral-50",
+        "text-neutral-800 ",
+        "duration-300 hover:bg-neutral-100 hover:border-neutral-300",        // { "text-neutral-300 bg-sogyo border-neutral-300": false },
+        )}
         onClick={() => onSubmit()}>
         rematch
     </button>)

@@ -30,18 +30,10 @@ export const Pit = (props: Props) => {
     }
     
     return <button className={classNames(
-        "py-1",
-        "px-3",
-        "rounded-full",
-        "text-xl",
-        "border-4",
-        // "duration-300",
+        "py-1 px-3 rounded-full text-xl border-4",
         "text-neutral-800",
-        "bg-neutral-50",
-        // {"order-1": index===5},     
-        // {"order-2": index===4},        
-   
-        {"hover:bg-neutral-100 hover:border-neutral-300": hasTurn && (nrOfStones>0)},
+        "bg-neutral-50",  
+        {"duration-300 hover:bg-neutral-100 hover:border-neutral-300": hasTurn && (nrOfStones>0)},
         {"cursor-not-allowed": hasTurn && (nrOfStones===0) },
         {"border-neutral-100": !hasTurn}
         

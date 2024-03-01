@@ -14,16 +14,12 @@ export const Play = () => {
     const winner = gameState?.gameStatus.winner
     const drawOrWin = gameState?.gameStatus.winner === "draw" ? "It's a draw" : winner + " has won!"
 
-    console.log(winner)
-
-
     const gameStatus = hasGameEnded 
         ? <div>{drawOrWin}<div className="pt-4"><RematchButton /></div></div> 
         : <div>It's player {activePlayer}'s turn</div>
 
     return <div>
         <div className="pt-6 text-center">
-            {/* <h4 className="text-xl font-semibold"> Player: {player2} </h4> */}
             <h4 className={classNames("text-xl", "font-semibold")}>Player: {inactivePlayer}</h4>
         <Board />
         <h4 className={classNames("text-xl", "font-semibold", "underline")}>Player: {activePlayer}</h4><br />
