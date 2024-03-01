@@ -1,5 +1,6 @@
 package mancala.domain;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import mancala.domain.exceptions.UnplayablePitException;
 
 public class Mancala implements IMancala {
@@ -13,7 +14,7 @@ public class Mancala implements IMancala {
         this.namePlayer2 = namePlayer2;
     }
 
-    public Mancala(int[] seedCountArray){
+    public Mancala(int[] seedCountArray) {
         firstPit = new Pit(seedCountArray);
         this.namePlayer1 = "Player 1";
         this.namePlayer2 = "Player 2";
@@ -31,9 +32,9 @@ public class Mancala implements IMancala {
 
     @Override
     public boolean isPlayersTurn(String name) {
-        if (name.equals(namePlayer1)){
+        if (name.equals(namePlayer1)) {
             return firstPit.playerIsActive();
-        } else if (name.equals(namePlayer2)){
+        } else if (name.equals(namePlayer2)) {
             return !firstPit.playerIsActive();
         } else {
 //            throw exception
@@ -71,9 +72,9 @@ public class Mancala implements IMancala {
     private Winner determineWinner() {
         int seedsKahlua1 = firstPit.getSeedCountAtPosition(6);
         int seedsKahlua2 = firstPit.getSeedCountAtPosition(13);
-        if (seedsKahlua1 > seedsKahlua2){
+        if (seedsKahlua1 > seedsKahlua2) {
             return Winner.PLAYER_1;
-        } else if (seedsKahlua2 > seedsKahlua1){
+        } else if (seedsKahlua2 > seedsKahlua1) {
             return Winner.PLAYER_2;
         } else {
             return Winner.DRAW;

@@ -1,6 +1,8 @@
 package mancala.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 abstract class AbstractPit {
     abstract Player getPlayer();
 

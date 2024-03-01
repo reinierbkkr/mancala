@@ -12,10 +12,19 @@ repositories {
 dependencies {
     // Download JUnit so that we can use it in our tests.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation "org.xerial:sqlite-jdbc:3.45.1.0"
+
+    testImplementation "org.slf4j:slf4j-api:1.7.5"
+    testImplementation "org.slf4j:slf4j-log4j12:1.7.5"
+
+    implementation "com.fasterxml.jackson.core:jackson-databind:+" // for making jsons
+    implementation "com.fasterxml.jackson.core:jackson-core:+"
+
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testRuntimeOnly "org.junit.platform:junit-platform-commons:1.8.2"
 
     implementation project(':domain')
+
 }
 
 test {
