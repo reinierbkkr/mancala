@@ -23,7 +23,6 @@ export const Kalaha = (props: Props) => {
         "rounded-full",
         "text-xl",
         "border-4",
-        "duration-300",
         "text-neutral-800",
         "bg-neutral-50",
         {"border-neutral-200": hasTurn},

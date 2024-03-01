@@ -17,9 +17,7 @@ public class GameStatusDTO {
                 this.winner = mancala.getNameOfPlayerTwo();
                 break;
             case DRAW:
-                this.winner = mancala.getNameOfPlayerOne()
-                        + " and "
-                        + mancala.getNameOfPlayerTwo();
+                this.winner = "draw";
                 break;
             default:
                 this.winner = null;
