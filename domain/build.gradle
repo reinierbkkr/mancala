@@ -62,6 +62,7 @@ jacocoTestReport {
         csv.enabled true
         csv.destination file("${buildDir}/jacocoCsv")
     }
+}
 
 check.dependsOn jacocoTestCoverageVerification
 
