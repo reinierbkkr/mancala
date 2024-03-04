@@ -16,4 +16,4 @@ sample-job:
       - domain/build/libs/*.jar
       - persistence/build/libs/*.jar
       - api/build/libs/*.jar
-#      - build/jacocoCsv/*.csv
+      - build/jacocoCsv/*.csv
