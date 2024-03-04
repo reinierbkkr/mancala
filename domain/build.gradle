@@ -2,6 +2,7 @@ plugins {
     // Tell Gradle that we are builing java as a library (non-executable piece of code intended for use by other applications).
     id 'java'
     id 'java-library'
+//    id 'checkstyle'
 }
 
 apply plugin: "jacoco"
@@ -9,6 +10,23 @@ apply plugin: "jacoco"
 jacoco {
     toolVersion = "0.8.7"
 }
+
+apply plugin: "checkstyle"
+
+checkstyle {
+
+    configFile = project(':').file("config/checkstyle/checkstyle.xml")
+    configProperties = ["suppressionFile" : project(':').file("config/checkstyle/suppressions.xml")]
+    toolVersion = "6.0"
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
 
 repositories {
     // Specify the repository mirror that we want to download our dependencies from. Maven Central is configured by default when creating a new Gradle project.
