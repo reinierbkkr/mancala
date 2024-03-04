@@ -11,7 +11,14 @@
 <module name="Checker">
     <module name="TreeWalker">
         <module name="CyclomaticComplexity">
-        <property name="max" value="6"/>
+            <property name="max" value="6"/>
+        </module>
+        <module name="BooleanExpressionComplexity"/>
+        <module name="ClassFanOutComplexity"/>
+        <module name="JavaNCSS"/>
+        <module name="NPathComplexity"/>
+        <module name="ClassDataAbstractionCoupling">
+            <property name="excludedClasses" value="ResourceConfig, Server, ServletContainer, ServletContextHandler, ServletHolder"/>
         </module>
     </module>
 </module>
