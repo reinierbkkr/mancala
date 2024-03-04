@@ -4,6 +4,12 @@ plugins {
     id 'java-library'
 }
 
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
 repositories {
     // Specify the repository mirror that we want to download our dependencies from. Maven Central is configured by default when creating a new Gradle project.
     mavenCentral()
@@ -31,3 +37,19 @@ test {
     // For running our tests, use the test runner provided by JUnit.
     useJUnitPlatform()
 }
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.6
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+test.finalizedBy jacocoTestReport

@@ -5,6 +5,12 @@ plugins {
     id 'application'
 }
 
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
 repositories {
     mavenCentral()
 }
@@ -49,3 +55,19 @@ test {
     // Use junit platform for unit tests
     useJUnitPlatform()
 }
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.6
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+test.finalizedBy jacocoTestReport
