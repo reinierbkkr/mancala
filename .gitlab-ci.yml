@@ -1,5 +1,7 @@
 variables:
   BUILD_ID: "${CI_CONCURRENT_ID}"
+  BRANCH: "${CI_COMMIT_BRANCH}"
+  COMMIT_SHA: "${CI_COMMIT_SHA}"
 
 image: gradle:7.2
 
@@ -9,7 +11,7 @@ stages:
 sample-job:
   stage: sample-stage
   script:
-    - gradle clean build --info -Pversion="${BUILD_ID}"
+    - gradle clean build --info -Pversion="${BUILD_ID}-${BRANCH}-${COMMIT_SHA}"
   artifacts:
     paths:
       - domain/build/libs/*.jar
