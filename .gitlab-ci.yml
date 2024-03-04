@@ -6,5 +6,5 @@ stages:
 sample-job:
   stage: sample-stage
   script:
-    - gradle clean test
+    - gradle clean build --info
 
