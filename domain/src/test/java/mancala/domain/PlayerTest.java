@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlayerTest {
 
     @Test
-    void player1IsActiveDefaultTest(){
+    void player1IsActiveDefaultTest() {
         Pit firstPit = new Pit();
 
         assertTrue(firstPit.getPlayer().isActive());
@@ -15,7 +15,7 @@ public class PlayerTest {
     }
 
     @Test
-    void OpponentIsInactiveDefaultTest(){
+    void OpponentIsInactiveDefaultTest() {
         Pit firstPit = new Pit();
 
         var player1 = firstPit.getPlayer();
@@ -26,7 +26,7 @@ public class PlayerTest {
     }
 
     @Test
-    void player1SwitchTurnPlayer1InactiveTest(){
+    void player1SwitchTurnPlayer1InactiveTest() {
         Pit firstPit = new Pit();
 
         var player1 = firstPit.getPlayer();
@@ -38,7 +38,7 @@ public class PlayerTest {
     }
 
     @Test
-    void player1SwitchTurnOpponentActiveTest(){
+    void player1SwitchTurnOpponentActiveTest() {
         Pit firstPit = new Pit();
 
         var player1 = firstPit.getPlayer();
@@ -50,3 +50,4 @@ public class PlayerTest {
 
     }
 }
+

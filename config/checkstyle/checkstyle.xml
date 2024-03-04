@@ -10,6 +10,8 @@
 
 <module name="Checker">
     <module name="TreeWalker">
-        <module name="CyclomaticComplexity"/>
+        <module name="CyclomaticComplexity">
+        <property name="max" value="6"/>
+        </module>
     </module>
 </module>

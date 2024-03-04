@@ -17,7 +17,7 @@ checkstyle {
 
     configFile = project(':').file("config/checkstyle/checkstyle.xml")
     configProperties = ["suppressionFile" : project(':').file("config/checkstyle/suppressions.xml")]
-    toolVersion = "6.0"
+    toolVersion = "6.1.1"
 }
 
 tasks.withType(Checkstyle) {

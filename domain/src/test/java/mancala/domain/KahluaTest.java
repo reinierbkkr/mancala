@@ -15,13 +15,7 @@ public class KahluaTest {
     }
 
     public static void printBoard(AbstractPit firstPit) {
-        String board = """
-                     13 12 11 10 9  8
-                     %02d %02d %02d %02d %02d %02d
-                14 %02d                 %02d 7
-                     %02d %02d %02d %02d %02d %02d
-                     1  2  3  4  5  6
-                """;
+        String board = "\n     13 12 11 10 9  8\n     %02d %02d %02d %02d %02d %02d\n14 %02d                 %02d 7\n     %02d %02d %02d %02d %02d %02d\n     1  2  3  4  5  6";
         System.out.printf(board,
                 firstPit.getPitAtDistance(12).getSeedCount(),
                 firstPit.getPitAtDistance(11).getSeedCount(),
@@ -487,7 +481,7 @@ public class KahluaTest {
 //    }
 
     @Test
-    void endGameAndSendAllSeedsToKahluaTest() throws UnplayablePitException{
+    void endGameAndSendAllSeedsToKahluaTest() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -509,7 +503,8 @@ public class KahluaTest {
         pit6.play();
         pit8.play();
 
-        assertEquals(0,pit12.getSeedCount());
+        assertEquals(0, pit12.getSeedCount());
     }
 
 }
+

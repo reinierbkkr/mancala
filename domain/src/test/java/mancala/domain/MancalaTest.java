@@ -7,13 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MancalaTest {
     public static void printBoard(AbstractPit firstPit) {
-        String board = """
-                     13 12 11 10 9  8
-                     %02d %02d %02d %02d %02d %02d
-                14 %02d                 %02d 7
-                     %02d %02d %02d %02d %02d %02d
-                     1  2  3  4  5  6
-                """;
+        String board = "\n     13 12 11 10 9  8\n     %02d %02d %02d %02d %02d %02d\n14 %02d                 %02d 7\n     %02d %02d %02d %02d %02d %02d\n     1  2  3  4  5  6";
         System.out.printf(board,
                 firstPit.getPitAtDistance(12).getSeedCount(),
                 firstPit.getPitAtDistance(11).getSeedCount(),
@@ -33,11 +27,11 @@ public class MancalaTest {
     }
 
     @Test
-    void playPit_test(){
+    void playPit_test() {
         int[] seedCountArray = {
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0,
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0};
         IMancala mancala = new Mancala(seedCountArray);
 
@@ -47,11 +41,11 @@ public class MancalaTest {
     }
 
     @Test
-    void getStonesForPit_test(){
+    void getStonesForPit_test() {
         int[] seedCountArray = {
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0,
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0};
         IMancala mancala = new Mancala(seedCountArray);
 
@@ -59,11 +53,11 @@ public class MancalaTest {
     }
 
     @Test
-    void isEndOfGame_test(){
+    void isEndOfGame_test() {
         int[] seedCountArray = {
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0,
-                0,0,0,0,0,0,
+                0, 0, 0, 0, 0, 0,
                 0};
         IMancala mancala = new Mancala(seedCountArray);
 
@@ -76,11 +70,11 @@ public class MancalaTest {
     }
 
     @Test
-    void getWinner_Player1_wins_test(){
+    void getWinner_Player1_wins_test() {
         int[] seedCountArray = {
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0,
-                0,0,0,0,0,0,
+                0, 0, 0, 0, 0, 0,
                 0};
         IMancala mancala = new Mancala(seedCountArray);
 
@@ -90,11 +84,11 @@ public class MancalaTest {
     }
 
     @Test
-    void getWinner_Player2_wins_test(){
+    void getWinner_Player2_wins_test() {
         int[] seedCountArray = {
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0,
-                0,0,2,0,0,0,
+                0, 0, 2, 0, 0, 0,
                 0};
         IMancala mancala = new Mancala(seedCountArray);
 
@@ -105,11 +99,11 @@ public class MancalaTest {
     }
 
     @Test
-    void getWinner_draw_test(){
+    void getWinner_draw_test() {
         int[] seedCountArray = {
-                0,0,0,0,0,1,
+                0, 0, 0, 0, 0, 1,
                 0,
-                0,0,0,0,0,1,
+                0, 0, 0, 0, 0, 1,
                 0};
         IMancala mancala = new Mancala(seedCountArray);
 
@@ -120,14 +114,14 @@ public class MancalaTest {
     }
 
     @Test
-    void isPlayersTurn_its_player1s_turn_test(){
+    void isPlayersTurn_its_player1s_turn_test() {
         IMancala mancala = new Mancala("hans", "jan");
 
         assertTrue(mancala.isPlayersTurn("hans"));
     }
 
     @Test
-    void isPlayersTurn_its_player2s_turn_test(){
+    void isPlayersTurn_its_player2s_turn_test() {
         IMancala mancala = new Mancala("hans", "jan");
 
         mancala.playPit(0);
@@ -136,3 +130,4 @@ public class MancalaTest {
     }
 
 }
+

@@ -15,13 +15,7 @@ public class PitTest {
     }
 
     public static void printBoard(AbstractPit firstPit) {
-        String board = """
-                     13 12 11 10 9  8
-                     %02d %02d %02d %02d %02d %02d
-                14 %02d                 %02d 7
-                     %02d %02d %02d %02d %02d %02d
-                     1  2  3  4  5  6
-                """;
+        String board = "\n     13 12 11 10 9  8\n     %02d %02d %02d %02d %02d %02d\n14 %02d                 %02d 7\n     %02d %02d %02d %02d %02d %02d\n     1  2  3  4  5  6";
         System.out.printf(board,
                 firstPit.getPitAtDistance(12).getSeedCount(),
                 firstPit.getPitAtDistance(11).getSeedCount(),
@@ -302,7 +296,7 @@ public class PitTest {
         pit11.play();
 
 
-        printBoard(pit1);
+//        printBoard(pit1);
 
         assertEquals(1, pit1.getSeedCount());
         assertEquals(5, pit13.getSeedCount());
@@ -374,11 +368,11 @@ public class PitTest {
     }
 
     @Test
-    void playPitEndsInEmptyOpponentsPitSoNoReap() throws UnplayablePitException{
+    void playPitEndsInEmptyOpponentsPitSoNoReap() throws UnplayablePitException {
         int[] seedCountArray = {
-                0,0,0,0,0,2,
+                0, 0, 0, 0, 0, 2,
                 0,
-                0,0,0,0,0,0,
+                0, 0, 0, 0, 0, 0,
                 0};
         Pit pit1 = new Pit(seedCountArray);
 
@@ -393,11 +387,11 @@ public class PitTest {
     }
 
     @Test
-    void playPitEndsInEmptyPitButOppositePitIsEmptySoNoReap() throws UnplayablePitException{
+    void playPitEndsInEmptyPitButOppositePitIsEmptySoNoReap() throws UnplayablePitException {
         int[] seedCountArray = {
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0,
-                1,0,0,0,0,0,
+                1, 0, 0, 0, 0, 0,
                 0};
         Pit pit1 = new Pit(seedCountArray);
 
@@ -405,7 +399,7 @@ public class PitTest {
 
         AbstractPit pit2 = pit1.getNextPit();
 
-        printBoard(pit1);
+//        printBoard(pit1);
 
         assertEquals(0, pit1.getSeedCount());
         assertEquals(1, pit2.getSeedCount());
@@ -413,14 +407,14 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameGameHasNotEnded(){
+    void detectEndOfGameGameHasNotEnded() {
         Pit pit1 = new Pit();
 
         assertTrue(pit1.isGameActive());
     }
 
     @Test
-    void detectEndOfGameFirstPitIsEmptyGameHasNotEnded() throws UnplayablePitException{
+    void detectEndOfGameFirstPitIsEmptyGameHasNotEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit8 = (Pit) pit1.getPitAtDistance(7);
 
@@ -431,7 +425,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer1PitsEmptyGameHasEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer1PitsEmptyGameHasEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -458,7 +452,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer1PitsEmptyButNotTheirTurnGameHasNotEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer1PitsEmptyButNotTheirTurnGameHasNotEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -484,7 +478,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer2PitsEmptyGameHasEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer2PitsEmptyGameHasEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit6 = (Pit) pit1.getPitAtDistance(5);
@@ -522,7 +516,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer2PitsEmptyCallOnPit2GameHasEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer2PitsEmptyCallOnPit2GameHasEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit6 = (Pit) pit1.getPitAtDistance(5);
@@ -559,7 +553,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer2PitsEmptyCallOnPit9GameHasEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer2PitsEmptyCallOnPit9GameHasEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit6 = (Pit) pit1.getPitAtDistance(5);
@@ -596,7 +590,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer1PitsEmptyCallOnPit2GameHasEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer1PitsEmptyCallOnPit2GameHasEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -623,7 +617,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer1PitsEmptyCallOnPit9GameHasEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer1PitsEmptyCallOnPit9GameHasEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -651,7 +645,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer1PitsEmptyButPit1AndPit6CallOnPit2GameHasNotEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer1PitsEmptyButPit1AndPit6CallOnPit2GameHasNotEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -670,11 +664,11 @@ public class PitTest {
 
 //        printBoard(pit1);
 
-    assertTrue(pit1.isGameActive());
+        assertTrue(pit1.isGameActive());
     }
 
     @Test
-    void detectEndOfGameAllPlayer1PitsEmptyButPit1GameHasNotEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer1PitsEmptyButPit1GameHasNotEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -705,7 +699,7 @@ public class PitTest {
     }
 
     @Test
-    void detectEndOfGameAllPlayer2PitsEmptyButPit8GameHasNotEnded() throws UnplayablePitException{
+    void detectEndOfGameAllPlayer2PitsEmptyButPit8GameHasNotEnded() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -737,7 +731,7 @@ public class PitTest {
     }
 
     @Test
-    void endGameAndSendAllSeedsToKahluaTest() throws UnplayablePitException{
+    void endGameAndSendAllSeedsToKahluaTest() throws UnplayablePitException {
         Pit pit1 = new Pit();
         Pit pit2 = (Pit) pit1.getPitAtDistance(1);
         Pit pit3 = (Pit) pit1.getPitAtDistance(2);
@@ -761,15 +755,15 @@ public class PitTest {
 
 //        printBoard(pit1);
 
-        assertEquals(0,pit12.getSeedCount());
+        assertEquals(0, pit12.getSeedCount());
     }
 
     @Test
-    void findFirstActivePitTest() throws UnplayablePitException{
+    void findFirstActivePitTest() throws UnplayablePitException {
         int[] seedCountArray = {
-                0,0,0,0,0,2,
+                0, 0, 0, 0, 0, 2,
                 0,
-                0,0,0,0,0,0,
+                0, 0, 0, 0, 0, 0,
                 0};
         Pit pit1 = new Pit(seedCountArray);
         AbstractPit pit6 = pit1.getPitAtDistance(5);
@@ -784,8 +778,8 @@ public class PitTest {
 //        printBoard(pit1);
 
 
-
 //        assertEquals(0,pit12.getSeedCount());
     }
 
 }
+

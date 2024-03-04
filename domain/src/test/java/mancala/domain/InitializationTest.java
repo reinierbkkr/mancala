@@ -176,14 +176,14 @@ public class InitializationTest {
     }
 
     @Test
-    void initializePitsCheckSeedCountFirstPitTest(){
+    void initializePitsCheckSeedCountFirstPitTest() {
         AbstractPit firstPit = new Pit();
 
-        assertEquals(4,firstPit.getSeedCount());
+        assertEquals(4, firstPit.getSeedCount());
     }
 
     @Test
-    void initializePitsCheckSeedCountSixthPitTest(){
+    void initializePitsCheckSeedCountSixthPitTest() {
         AbstractPit firstPit = new Pit();
 
         AbstractPit resultPit = firstPit;
@@ -191,11 +191,11 @@ public class InitializationTest {
             resultPit = resultPit.getNextPit();
         }
 
-        assertEquals(4,resultPit.getSeedCount());
+        assertEquals(4, resultPit.getSeedCount());
     }
 
     @Test
-    void initializePitsCheckSeedCountFirstKahluaTest(){
+    void initializePitsCheckSeedCountFirstKahluaTest() {
         AbstractPit firstPit = new Pit();
 
         AbstractPit resultKahlua = firstPit;
@@ -203,11 +203,11 @@ public class InitializationTest {
             resultKahlua = resultKahlua.getNextPit();
         }
 
-        assertEquals(0,resultKahlua.getSeedCount());
+        assertEquals(0, resultKahlua.getSeedCount());
     }
 
     @Test
-    void initializePitsCheckSeedCountEighthPitTest(){
+    void initializePitsCheckSeedCountEighthPitTest() {
         AbstractPit firstPit = new Pit();
 
         AbstractPit resultPit = firstPit;
@@ -215,11 +215,11 @@ public class InitializationTest {
             resultPit = resultPit.getNextPit();
         }
 
-        assertEquals(4,resultPit.getSeedCount());
+        assertEquals(4, resultPit.getSeedCount());
     }
 
     @Test
-    void initializePitsCheckSeedCount13thPitTest(){
+    void initializePitsCheckSeedCount13thPitTest() {
         AbstractPit firstPit = new Pit();
 
         AbstractPit resultPit = firstPit;
@@ -227,11 +227,11 @@ public class InitializationTest {
             resultPit = resultPit.getNextPit();
         }
 
-        assertEquals(4,resultPit.getSeedCount());
+        assertEquals(4, resultPit.getSeedCount());
     }
 
     @Test
-    void initializePitsCheckSeedCountSecondKahluaTest(){
+    void initializePitsCheckSeedCountSecondKahluaTest() {
         AbstractPit firstPit = new Pit();
 
         AbstractPit resultPit = firstPit;
@@ -239,7 +239,8 @@ public class InitializationTest {
             resultPit = resultPit.getNextPit();
         }
 
-        assertEquals(0,resultPit.getSeedCount());
+        assertEquals(0, resultPit.getSeedCount());
     }
 
 }
+
