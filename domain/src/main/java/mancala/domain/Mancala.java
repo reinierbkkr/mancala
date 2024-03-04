@@ -1,6 +1,5 @@
 package mancala.domain;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import mancala.domain.exceptions.UnplayablePitException;
 
 public class Mancala implements IMancala {
