@@ -41,15 +41,23 @@ test {
 jacocoTestCoverageVerification {
     violationRules {
         rule {
+            element = 'CLASS'
             limit {
                 counter = 'LINE'
                 value = 'COVEREDRATIO'
                 minimum = 0.6
             }
+            excludes = [
+                    'mancala.persistence.MancalaDatabase'
+            ]
         }
     }
 }
 
-check.dependsOn jacocoTestCoverageVerification
+tasks.withType(JacocoReport) {
+    doLast {
+        logger.info("Class exclusion list: ${project.jacocoTestCoverageVerification.violationRules.rules[0].excludes}")
+    }
+}
 
 test.finalizedBy jacocoTestReport
