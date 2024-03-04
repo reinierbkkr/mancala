@@ -7,4 +7,6 @@ sample-job:
   stage: sample-stage
   script:
     - gradle clean build --info -Pversion="1.0"
-
+  artifacts:
+    paths:
+      - build/libs/*.jar
