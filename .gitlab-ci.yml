@@ -9,4 +9,4 @@ sample-job:
     - gradle clean build --info -Pversion="1.0"
   artifacts:
     paths:
-      - build/libs/*.jar
+      - domain/build/libs/*.jar
