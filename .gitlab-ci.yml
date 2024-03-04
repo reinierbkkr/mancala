@@ -6,5 +6,5 @@ stages:
 sample-job:
   stage: sample-stage
   script:
-    - gradle clean build --info
+    - gradle clean build --info -Pversion="1.0"
 
