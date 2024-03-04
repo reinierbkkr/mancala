@@ -1,3 +1,5 @@
+BUILD_ID: '${CI_CONCURRENT_ID}'
+
 image: gradle:7.2
 
 stages:
@@ -6,7 +8,7 @@ stages:
 sample-job:
   stage: sample-stage
   script:
-    - gradle clean build --info -Pversion=CI_CONCURRENT_ID
+    - gradle clean build --info -Pversion='{$BUILD_ID}'
   artifacts:
     paths:
       - domain/build/libs/*.jar
