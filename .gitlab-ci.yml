@@ -6,7 +6,7 @@ stages:
 sample-job:
   stage: sample-stage
   script:
-    - gradle clean build --info -Pversion="1.0"
+    - gradle clean build --info -Pversion=CI_CONCURRENT_ID
   artifacts:
     paths:
       - domain/build/libs/*.jar
