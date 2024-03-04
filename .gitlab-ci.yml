@@ -1,4 +1,4 @@
-image: gradle:7.1.0-jdk17
+image: gradle:latest
 
 stages:
   - sample-stage
@@ -7,4 +7,4 @@ sample-job:
   stage: sample-stage
   script:
     - gradle clean test
-    - gradle reports   
+
