@@ -134,4 +134,9 @@ public class MancalaTest {
 
         assertTrue(mancala.isPlayersTurn("jan"));
     }
+
+    @Test
+    void failing_test(){
+        assertTrue(false);
+    }
 }
