@@ -1,8 +1,14 @@
-# Run your build and tests
-#./gradlew clean test -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
+# Run your build and tests, capturing both build outputs and coverage percentages
+build_output=$(./gradlew clean build -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}" 2>&1)
+coverage_output=$(echo "$build_output" | grep -oE 'Line Coverage: ([0-9.]+)%')
 
-# Extract all line coverage percentages from the console output and calculate average
-average_coverage=$(./gradlew clean build -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}" | grep -oE 'Line Coverage: ([0-9.]+)%' | grep -oE '[0-9.]+' | awk '{ total += $1 } END { print total / NR }')
+# Calculate average coverage
+average_coverage=$(echo "$coverage_output" | grep -oE '[0-9.]+' | awk '{ total += $1 } END { print total / NR }')
+
+# Print build outputs
+echo "Build Outputs:"
+echo "$build_output"
+echo
 
 # Print the average coverage
 echo "Average Coverage: ${average_coverage}%"
