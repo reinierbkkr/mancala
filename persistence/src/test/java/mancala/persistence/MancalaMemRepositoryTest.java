@@ -17,4 +17,9 @@ public class MancalaMemRepositoryTest {
 
     }
 
+    @Test
+    void failtest(){
+        assertTrue(false);
+    }
+
 }
