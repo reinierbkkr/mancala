@@ -2,6 +2,7 @@ plugins {
     // Tell Gradle that we are builing java as a library (non-executable piece of code intended for use by other applications).
     id 'java'
     id 'java-library'
+    id 'org.barfuin.gradle.jacocolog' version '2.0.0'
 }
 
 apply plugin: "jacoco"
@@ -59,11 +60,11 @@ jacocoTestCoverageVerification {
 
 check.dependsOn jacocoTestCoverageVerification
 
-jacocoTestReport {
-    reports {
-        csv.enabled true
-        csv.destination file("${buildDir}/jacocoCsv")
-    }
-}
+//jacocoTestReport {
+//    reports {
+//        csv.enabled true
+//        csv.destination file("${buildDir}/jacocoCsv")
+//    }
+//}
 
 test.finalizedBy jacocoTestReport
