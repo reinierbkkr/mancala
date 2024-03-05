@@ -1,5 +1,7 @@
 ## Code coverage
 
+[![coverage report](https://git.sogyo.nl/rbakker/mancala-java/badges/mvc/coverage.svg)](https://git.sogyo.nl/rbakker/mancala-java/-/commits/mvc)
+
 Code coverage minimum is 60% build will fail otherwise.
 
 ## Repository structure
