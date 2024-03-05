@@ -8,11 +8,12 @@ stages:
 
 sample-job:
   stage: sample-stage
-  coverage: '/    - Line Coverage: ([0-9.]+)%/'
+  coverage: 'Average Coverage: ([0-9.]+)%/'
   script:
 #    - gradle clean build --info -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
-    - chmod +x /builds/rbakker/mancala-java/calculate-coverage.sh
-    - /builds/rbakker/mancala-java/calculate-coverage.sh
+    - chmod +x /builds/rbakker/mancala-java/testandaveragecoverage.sh
+    - /builds/rbakker/mancala-java/testandaveragecoverage.sh
+
   artifacts:
     paths:
 #      - build/reports/jacoco/test/html/
