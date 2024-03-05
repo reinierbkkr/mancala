@@ -10,7 +10,7 @@ build:
   stage: build
   coverage: '/Average Coverage: ([0-9.]+)%/'
   script:
-    ./gradlew clean build
+    - ./gradlew clean build
 #    - chmod +x /builds/rbakker/mancala-java/buildandreportcoverage.sh
 #    - /builds/rbakker/mancala-java/buildandreportcoverage.sh
 
