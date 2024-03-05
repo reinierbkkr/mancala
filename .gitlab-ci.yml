@@ -11,6 +11,7 @@ sample-job:
   coverage: '/    - Line Coverage: ([0-9.]+)%/'
   script:
     - gradle clean build --info -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
+    - chmod +x calculate_coverage.sh
     - ./calculate-coverage.sh
   artifacts:
     paths:
