@@ -8,6 +8,7 @@ apply plugin: "jacoco"
 
 jacoco {
     toolVersion = "0.8.7"
+    id 'org.barfuin.gradle.jacocolog' version '2.0.0'
 }
 
 apply plugin: "checkstyle"

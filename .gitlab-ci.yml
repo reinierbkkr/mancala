@@ -11,10 +11,8 @@ sample-job:
   coverage: '/    - Line Coverage: ([0-9.]+)%/'
   script:
     - gradle clean build --info -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
-#    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print 100*covered/instructions, "% covered" }' $JACOCO_CSV_LOCATION
   artifacts:
     paths:
       - domain/build/libs/*.jar
       - persistence/build/libs/*.jar
       - api/build/libs/*.jar
-#      - domain/build/jacocoCsv/*.csv

@@ -60,11 +60,4 @@ jacocoTestCoverageVerification {
 
 check.dependsOn jacocoTestCoverageVerification
 
-//jacocoTestReport {
-//    reports {
-//        csv.enabled true
-//        csv.destination file("${buildDir}/jacocoCsv")
-//    }
-//}
-
 test.finalizedBy jacocoTestReport
