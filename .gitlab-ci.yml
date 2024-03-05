@@ -4,19 +4,18 @@ variables:
   JACOCO_CSV_LOCATION: '$CI_PROJECT_DIR/domain/build/jacocoCsv'
 
 stages:
-  - sample-stage
+  - build
 
-sample-job:
-  stage: sample-stage
+build:
+  stage: build
   coverage: '/Average Coverage: ([0-9.]+)%/'
   script:
-#    - gradle clean build --info -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
     - chmod +x /builds/rbakker/mancala-java/buildandreportcoverage.sh
     - /builds/rbakker/mancala-java/buildandreportcoverage.sh
 
   artifacts:
     paths:
-#      - build/reports/jacoco/test/html/
       - domain/build/libs/*.jar
       - persistence/build/libs/*.jar
       - api/build/libs/*.jar
+      - client/
