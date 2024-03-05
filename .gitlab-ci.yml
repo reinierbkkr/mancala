@@ -19,3 +19,4 @@ build:
       - persistence/build/libs/*.jar
       - api/build/libs/*.jar
       - client/
+      - api/build/reports
