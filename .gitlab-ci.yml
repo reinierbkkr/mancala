@@ -12,7 +12,7 @@ sample-job:
   script:
     - gradle clean build --info -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
     - pwd
-#    - ./calculate-coverage.sh
+#    - calculate-coverage.sh
   artifacts:
     paths:
 #      - build/reports/jacoco/test/html/
