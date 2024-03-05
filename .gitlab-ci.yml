@@ -13,6 +13,7 @@ sample-job:
     - gradle clean build --info -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
   artifacts:
     paths:
+      - build/reports/jacoco/test/html/
       - domain/build/libs/*.jar
       - persistence/build/libs/*.jar
       - api/build/libs/*.jar
