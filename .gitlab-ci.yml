@@ -13,14 +13,14 @@ test:
   script:
     - chmod +x /builds/rbakker/mancala-java/testandreportcoverage.sh
     - /builds/rbakker/mancala-java/testandreportcoverage.sh
+    - pwd
+    - ls
 
   artifacts:
     paths:
       - domain/build/reports
       - api/build/reports
       - persistence/build/reports
-      - pwd
-      - ls
 
 build:
   stage: build
