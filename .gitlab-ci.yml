@@ -17,6 +17,7 @@ test:
     - ls
     - ls ..
     - ls ../..
+    - ls ../../..
 
 #  artifacts:
 #    paths:
