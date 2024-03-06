@@ -19,8 +19,8 @@ test:
   stage: test
   coverage: '/Average Coverage: ([0-9.]+)%/'
   script:
-    - chmod +x /builds/rbakker/mancala-java/testandreportcoverage.sh
-    - /builds/rbakker/mancala-java/testandreportcoverage.sh
+#    - chmod +x /builds/rbakker/mancala-java/testandreportcoverage.sh
+#    - /builds/rbakker/mancala-java/testandreportcoverage.sh
 #    - pwd
 #    - ls
 #    - ls ..
