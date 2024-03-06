@@ -19,6 +19,8 @@ test:
       - domain/build/reports
       - api/build/reports
       - persistence/build/reports
+      - pwd
+      - ls
 
 build:
   stage: build
