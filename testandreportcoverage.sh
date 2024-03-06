@@ -1,5 +1,5 @@
 # Run your build and tests, capturing both build outputs and coverage percentages
-build_output=$(./gradlew clean build -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}" 2>&1)
+build_output=$(./gradlew clean test -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}" 2>&1)
 build_status=$?  # Capture the exit status of the build command
 
 # If the build fails, print the error message and exit with a non-zero status
