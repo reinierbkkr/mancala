@@ -18,6 +18,8 @@ test:
 #    - ls ..
 #    - ls ../..
     - ls ../../../lib
+    - ls ../../../cache
+
 
 #  artifacts:
 #    paths:
