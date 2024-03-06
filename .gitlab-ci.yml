@@ -23,7 +23,7 @@ test:
 build:
   stage: build
   script:
-      - ./gradlew clean build -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}
+      - ./gradlew clean build -Pversion="${CI_PIPELINE_ID}-${CI_COMMIT_BRANCH}-${CI_COMMIT_SHORT_SHA}"
 
   artifacts:
     paths:
