@@ -14,10 +14,10 @@ test:
 #    - chmod +x /builds/rbakker/mancala-java/testandreportcoverage.sh
 #    - /builds/rbakker/mancala-java/testandreportcoverage.sh
     - pwd
-    - ls
-    - ls ..
-    - ls ../..
-    - ls ../../..
+#    - ls
+#    - ls ..
+#    - ls ../..
+    - ls ../../../lib
 
 #  artifacts:
 #    paths:
